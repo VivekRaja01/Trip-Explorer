@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TripExplorer — Travel Reviews & Planner</title>
+    <link rel="icon" href="travel.jpg"> 
+    <link rel="stylesheet" href="style.css" />
+    <meta name="description"
+        content="TripExplorer - travel reviews, hotels, restaurants, attractions. Build itineraries, convert currency, and plan your trip." />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <button id="themeToggle" aria-label="Toggle theme" class="icon-btn">🌗</button>
+                <a href="#" class="logo">TripExplorer</a>
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#hotels">Hotels</a></li>
+                    <li><a href="#restaurants">Restaurants</a></li>
+                    <li><a href="#attractions">Attractions</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="itineraryOpen" class="btn small">Itinerary</button>
+                <button id="menuToggle" class="icon-btn" aria-label="Open menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div id="offcanvas" class="offcanvas" aria-hidden="true">
+        <button id="offcanvasClose" class="offcanvas-close" aria-label="Close">✕</button>
+        <ul class="offcanvas-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#hotels">Hotels</a></li>
+            <li><a href="#restaurants">Restaurants</a></li>
+            <li><a href="#attractions">Attractions</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero / Search -->
+    <main id="home">
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-text">
+                    <h1>Discover Places, Read Trusted Reviews & Build Your Trip</h1>
+                    <p>Search hotels, restaurants, and attractions — plan smarter with TripExplorer.</p>
+
+                    <form id="searchForm" class="search-form" role="search" aria-label="Search form">
+                        <input id="searchInput" type="search" placeholder="Search destination, hotel or attraction" />
+                        <select id="typeSelect" aria-label="Select type">
+                            <option value="all">All</option>
+                            <option value="hotels">Hotels</option>
+                            <option value="restaurants">Restaurants</option>
+                            <option value="attractions">Attractions</option>
+                        </select>
+                        <button type="submit" class="btn">Search</button>
+                    </form>
+
+                    <div class="quick-filters">
+                        <button class="chip">Top Rated</button>
+                        <button class="chip">Budget</button>
+                        <button class="chip">Family Friendly</button>
+                        <button class="chip">Romantic</button>
+                    </div>
+                </div>
+
+                <div class="hero-card">
+                    <h3>AI Travel Suggestion</h3>
+                    <p id="aiSuggestion">Tell us your mood and budget — AI suggestions will appear here (placeholder
+                        UI).</p>
+                    <div class="mini-form">
+                        <input id="mood" placeholder="e.g., beach, adventure, city" />
+                        <input id="budget" placeholder="Budget (USD)" />
+                        <button id="aiButton" class="btn small">Suggest</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destinations -->
+        <section id="destinations" class="section">
+            <div class="container section-head">
+                <h2>Popular Destinations</h2>
+                <p>Handpicked places loved by travelers.</p>
+            </div>
+
+            <div class="container grid destinations-grid">
+                <!-- Card -->
+                <article class="card">
+                    <img src="paris.jpg" alt="Paris City" />
+                    <div class="card-body">
+                        <h3>Paris, France</h3>
+                        <p class="muted">Romantic streets, museums, and cafes.</p>
+                        <div class="card-meta">
+                            <span class="stars">★★★★★</span>
+                            <span class="muted">4,512 reviews</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn small add-itinerary"
+                                data-item='{"title":"Paris, France","type":"destination"}'>Save to Itinerary</button>
+                            <a class="link" href="#hotels">View Hotels</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="New york.jpg" alt="New York City" />
+                    <div class="card-body">
+                        <h3>New York, USA</h3>
+                        <p class="muted">Big city energy with iconic landmarks.</p>
+                        <div class="card-meta">
+                            <span class="stars">★★★★☆</span>
+                            <span class="muted">3,210 reviews</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn small add-itinerary"
+                                data-item='{"title":"New York, USA","type":"destination"}'>Save to Itinerary</button>
+                            <a class="link" href="#restaurants">Top Eats</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="Tokyo.avif" alt="Tokyo City" />
+                    <div class="card-body">
+                        <h3>Tokyo, Japan</h3>
+                        <p class="muted">Culture, tech, and amazing food.</p>
+                        <div class="card-meta">
+                            <span class="stars">★★★★★</span>
+                            <span class="muted">2,980 reviews</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn small add-itinerary"
+                                data-item='{"title":"Tokyo, Japan","type":"destination"}'>Save to Itinerary</button>
+                            <a class="link" href="#attractions">Top Attractions</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="Maldives.webp" alt="Maldives Islands" />
+                    <div class="card-body">
+                        <h3>Maldives</h3>
+                        <p class="muted">Pristine beaches and overwater bungalows.</p>
+                        <div class="card-meta">
+                            <span class="stars">★★★★★</span>
+                            <span class="muted">1,700 reviews</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn small add-itinerary"
+                                data-item='{"title":"Maldives","type":"destination"}'>Save to Itinerary</button>
+                            <a class="link" href="#hotels">Resorts</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Hotels & Restaurants -->
+        <section id="hotels" class="section alt">
+            <div class="container section-head">
+                <h2>Top Hotels</h2>
+                <p>Best rated hotels with traveler reviews.</p>
+            </div>
+
+            <div class="container grid">
+                <article class="list-card">
+                    <img src="Grand Ocean.jpg" alt="Hotel" />
+                    <div class="list-body">
+                        <h3>Grand Ocean Resort</h3>
+                        <p class="muted">From $120/night Free WiFi</p>
+                        <div class="list-actions">
+                            <button class="btn small add-itinerary"
+                                data-item='{"title":"Grand Ocean Resort","type":"hotel"}'>Save</button>
+                            <a class="link" href="#reviews">Read Reviews</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="list-card">
+                    <img src="Botique.jpg" alt="Boutique Hotel" />
+                    <div class="list-body">
+                        <h3>City Boutique Inn</h3>
+                        <p class="muted">Cozy room</p>
+                        <div class="list-actions">
+                            <button class="btn small add-itinerary"
+                                data-item='{"title":"City Boutique Inn","type":"hotel"}'>Save</button>
+                            <a class="link" href="#reviews">Read Reviews</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="list-card">
+                    <img src="Delight.jpg" alt="Restaurant" />
+                    <div class="list-body">
+                        <h3>Saffron Delight</h3>
+                        <p class="muted">Local favorites</p>
+                        <div class="list-actions">
+                            <button class="btn small add-itinerary"
+                                data-item='{"title":"Saffron Delight","type":"restaurant"}'>Save</button>
+                            <a class="link" href="#reviews">Read Reviews</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Attractions -->
+        <section id="attractions" class="section">
+            <div class="container section-head">
+                <h2>Top Attractions</h2>
+                <p>Must-see places and hidden gems.</p>
+            </div>
+
+            <div class="container grid attractions-grid">
+                <article class="small-card">
+                    <img src="city Museum.jpg" alt="Museum" />
+                    <h4>City Museum</h4>
+                    <p class="muted">Works from around the world.</p>
+                </article>
+
+                <article class="small-card">
+                    <img src="Central Park.webp" alt="Park" />
+                    <h4>Central Park</h4>
+                    <p class="muted">Relaxing green spaces.</p>
+                </article>
+
+                <article class="small-card">
+                    <img src="Historic.jpg" alt="Monument" />
+                    <h4>Historic Monument</h4>
+                    <p class="muted">Iconic landmark and viewpoints.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Reviews -->
+        <section id="reviews" class="section alt">
+            <div class="container section-head">
+                <h2>Traveler Reviews</h2>
+                <p>Real reviews from real travelers (sample data).</p>
+            </div>
+
+            <div class="container reviews-grid">
+                <div class="reviews-list">
+                    <article class="review">
+                        <div class="review-header">
+                            <strong>Asha K.</strong>
+                            <span class="muted"> — Paris</span>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <p>Beautiful city, great food and museums. Highly recommend the river cruise.</p>
+                    </article>
+
+                    <article class="review">
+                        <div class="review-header">
+                            <strong>Ravi P.</strong>
+                            <span class="muted"> — Tokyo</span>
+                            <div class="stars">★★★★☆</div>
+                        </div>
+                        <p>Incredible culture and food. Public transport is the best.</p>
+                    </article>
+
+                    <article class="review user-review-form">
+                        <h4>Write a review</h4>
+                        <input id="reviewName" placeholder="Your name" />
+                        <input id="reviewPlace" placeholder="Place (e.g., Paris)" />
+                        <select id="reviewRating">
+                            <option value="5">★★★★★</option>
+                            <option value="4">★★★★☆</option>
+                            <option value="3">★★★☆☆</option>
+                            <option value="2">★★☆☆☆</option>
+                            <option value="1">★☆☆☆☆</option>
+                        </select>
+                        <textarea id="reviewText" placeholder="Tell others about your experience"></textarea>
+                        <button id="submitReview" class="btn">Submit Review</button>
+                    </article>
+                </div>
+
+                <aside class="side-panel">
+                    <div class="panel-block">
+                        <h4>Weather</h4>
+                        <p id="weatherInfo" class="muted">Sample weather: 25°C · Light clouds (Replace with API)</p>
+                    </div>
+
+                    <div class="panel-block">
+                        <h4>Currency Converter</h4>
+                        <div class="converter">
+                            <input id="amount" type="number" value="100" />
+                            <select id="fromCurrency">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="INR" selected>INR</option>
+                            </select>
+                            <select id="toCurrency">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="INR" selected>INR</option>
+                            </select>
+                            <button id="convertBtn" class="btn small">Convert</button>
+                            <div id="convertResult" class="muted">Result: --</div>
+                        </div>
+                    </div>
+
+                    <div class="panel-block">
+                        <h4>Map (Embed)</h4>
+                        <div class="map-placeholder">Map placeholder — add Google Maps iframe here for live maps.</div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Itinerary Modal (simple sidebar) -->
+        <aside id="itinerary" class="itinerary" aria-hidden="true">
+            <div class="itinerary-inner">
+                <button id="itineraryClose" class="icon-btn" aria-label="Close itinerary">✕</button>
+                <h3>Your Itinerary</h3>
+                <ul id="itineraryList" class="itinerary-list"></ul>
+                <div class="itinerary-actions">
+                    <button id="clearItinerary" class="btn">Clear</button>
+                    <button id="exportItinerary" class="btn">Export (JSON)</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-one">
+                <div class="footer-one__s1">
+                    <h4>About Tripadvisor</h4>
+                    <p>About Us</p>
+                    <p>Resources and Policies</p>
+                    <p>Careers</p>
+                    <p>Trust & Safety</p>
+                    <p>Contact us</p>
+                    <p>Tripadvisor Technology</p>
+                    <p>Blog</p>
+
+                </div>
+
+
+                <div class="footer-one__s2">
+                    <h4>Explore</h4>
+                    <p>Write a review</p>
+                    <p>Add a Place</p>
+                    <p>Join </p>
+                    <p>Travellers' Choice</p>
+                    <p>Help Centre</p>
+                    <p>Travel Stories</p>
+                </div>
+                <div class="footer-one__s3">
+                    <h4>Do Business With Us</h4>
+                    <p>Owners & DMO/CVB</p>
+                    <p>Business Advantage</p>
+                    <p>Sponsored Placements</p>
+                    <p>Access our Content API</p>
+                    <p>Get The App</p>
+                    <p>iPhone App</p>
+                    <p>Android App</p>
+                </div>
+                <div class="footer-one__s4">
+                    <h4>Tripadvisor Sites</h4>
+                    <p>Book tours and attraction tickets on Viator</p>
+                </div>
+            </div>
+            <div class="footer-two">
+                    <h4>Terms of Use</h4>
+                    <h4>Privacy and Cookies Statement</h4>
+                    <h4>Cookie consent</h4>
+                    <h4>Site Map</h4>
+                    <h4>How the site works</h4>
+                    <h4>Contact us</h4>
+                    <h4>Accessibility Statement</h4>
+                    <br>
+                    <br>
+            </div>
+            <div class="footer-three">
+                <h1>.ೃ࿔ ✈︎ *:･</h1>
+                <p><b>© 2025 Tripadvisor LLC All rights reserved !</b></p>
+            </div>
+        
+            <div class="paragraph">
+                <p>Tripadvisor LLC makes no guarantees for availability of prices advertised on our sites and
+                    applications. Listed prices may require a stay of a particular length or have blackout dates,
+                    qualifications or other applicable restrictions. Tripadvisor LLC is not responsible for any content
+                    on external web sites that are not owned or operated by Tripadvisor .</p>
+                <br>
+                <p>Tripadvisor LLC is not a booking agent or tour operator. When you book with one of our partners,
+                    please be sure to check their site for a full disclosure of all applicable fees.</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Minimal JS for interactivity -->
+    <script>
+        // Offcanvas menu toggles
+        const menuToggle = document.getElementById('menuToggle');
+        const offcanvas = document.getElementById('offcanvas');
+        const offcanvasClose = document.getElementById('offcanvasClose');
+        menuToggle.addEventListener('click', () => {
+            offcanvas.setAttribute('aria-hidden', 'false');
+            offcanvas.classList.add('open');
+        });
+        offcanvasClose.addEventListener('click', () => {
+            offcanvas.setAttribute('aria-hidden', 'true');
+            offcanvas.classList.remove('open');
+        });
+
+        // Theme toggle (dark/light)
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        // Itinerary sidebar
+        const itineraryOpen = document.getElementById('itineraryOpen');
+        const itinerary = document.getElementById('itinerary');
+        const itineraryClose = document.getElementById('itineraryClose');
+        const itineraryList = document.getElementById('itineraryList');
+        const clearItinerary = document.getElementById('clearItinerary');
+        const exportItinerary = document.getElementById('exportItinerary');
+
+        function loadItinerary() {
+            const data = JSON.parse(localStorage.getItem('itinerary') || '[]');
+            itineraryList.innerHTML = '';
+            data.forEach((item, i) => {
+                const li = document.createElement('li');
+                li.textContent = item.title + ' (' + item.type + ')';
+                const del = document.createElement('button');
+                del.textContent = 'Remove';
+                del.className = 'btn tiny';
+                del.addEventListener('click', () => {
+                    data.splice(i, 1);
+                    localStorage.setItem('itinerary', JSON.stringify(data));
+                    loadItinerary();
+                });
+                li.appendChild(del);
+                itineraryList.appendChild(li);
+            });
+        }
+
+        document.querySelectorAll('.add-itinerary').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = JSON.parse(btn.getAttribute('data-item'));
+                const data = JSON.parse(localStorage.getItem('itinerary') || '[]');
+                data.push(item);
+                localStorage.setItem('itinerary', JSON.stringify(data));
+                alert(item.title + ' added to your itinerary');
+            });
+        });
+
+        itineraryOpen.addEventListener('click', () => {
+            itinerary.setAttribute('aria-hidden', 'false');
+            itinerary.classList.add('open');
+            loadItinerary();
+        });
+        itineraryClose.addEventListener('click', () => {
+            itinerary.setAttribute('aria-hidden', 'true');
+            itinerary.classList.remove('open');
+        });
+
+        clearItinerary.addEventListener('click', () => {
+            localStorage.removeItem('itinerary');
+            loadItinerary();
+        });
+
+        exportItinerary.addEventListener('click', () => {
+            const data = localStorage.getItem('itinerary') || '[]';
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'itinerary.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        // Review submission (adds to DOM)
+        document.getElementById('submitReview').addEventListener('click', () => {
+            const name = document.getElementById('reviewName').value || 'Anonymous';
+            const place = document.getElementById('reviewPlace').value || '';
+            const rating = document.getElementById('reviewRating').value;
+            const text = document.getElementById('reviewText').value || '';
+            const reviewHTML = document.createElement('article');
+            reviewHTML.className = 'review';
+            reviewHTML.innerHTML = '<div class="review-header"><strong>' + name + '</strong> <span class="muted"> — ' + place + '</span> <div class="stars">' + '★★★★★'.slice(0, rating) + '</div></div><p>' + text + '</p>';
+            document.querySelector('.reviews-list').insertBefore(reviewHTML, document.querySelector('.user-review-form'));
+            // clear fields
+            document.getElementById('reviewName').value = '';
+            document.getElementById('reviewPlace').value = '';
+            document.getElementById('reviewText').value = '';
+            alert('Thank you for your review! (Locally added only)');
+        });
+
+        // Currency converter (sample static rates)
+        const rates = {
+            'USD': 1,
+            'EUR': 0.92,
+            'INR': 82.5
+        };
+        document.getElementById('convertBtn').addEventListener('click', () => {
+            const amt = parseFloat(document.getElementById('amount').value) || 0;
+            const from = document.getElementById('fromCurrency').value;
+            const to = document.getElementById('toCurrency').value;
+            const result = (amt / rates[from]) * rates[to];
+            document.getElementById('convertResult').textContent = 'Result: ' + result.toFixed(2) + ' ' + to;
+        });
+
+        // AI Suggestion placeholder
+        document.getElementById('aiButton').addEventListener('click', () => {
+            const mood = document.getElementById('mood').value || 'beach';
+            const budget = document.getElementById('budget').value || '500';
+            document.getElementById('aiSuggestion').textContent = 'Suggested: ' + mood + ' trip under $' + budget + ' — Try Maldives or Goa (placeholder AI).';
+        });
+
+        // Basic search (client-side filter of sample cards)
+        document.getElementById('searchForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            const type = document.getElementById('typeSelect').value;
+            // For demo, just alert
+            alert('Search for "' + q + '" in ' + type + ' (Demo - implement backend for real results).');
+        });
+    </script>
+</body>
+
+</html>
