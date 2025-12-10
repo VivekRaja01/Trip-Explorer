@@ -4,7 +4,7 @@
 
 ---
 
-## Features
+## Features 
 
 - **Semantic HTML5 Structure**  
   Uses semantic tags like `<header>`, `<main>`, and `<footer>` for better accessibility and SEO. 
