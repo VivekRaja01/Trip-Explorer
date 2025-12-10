@@ -7,7 +7,7 @@
 ## Features
 
 - **Semantic HTML5 Structure**  
-  Uses semantic tags like `<header>`, `<main>`, and `<footer>` for better accessibility and SEO.
+  Uses semantic tags like `<header>`, `<main>`, and `<footer>` for better accessibility and SEO. 
 
 -  **Modern CSS3 Styling**  
   Styled using Flexbox, CSS Grid, custom colors, hover effects, and typography.
