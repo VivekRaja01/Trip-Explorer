@@ -1,4 +1,4 @@
-# TripExplorer – Responsive Travel Website
+# TripExplorer – Responsive Travel Website 
 
 **TripExplorer** is a modern and responsive travel website where users can explore destinations, read travel reviews, and plan trips. Built with **HTML5** and **CSS3**, the site features a clean layout, intuitive navigation, and booking prompts — all optimized for desktop, tablet, and mobile devices.
 
